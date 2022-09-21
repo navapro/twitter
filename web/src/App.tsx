@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Landing from "./components/Landing";
 import { setContext } from "apollo-link-context";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 const httpLink = new HttpLink({ uri: "http://localhost:4000" });
 const authLink = setContext(async (req, { headers }) => {
@@ -36,8 +37,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Users />} />
+          <Route path="/users" element={<Users />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </ApolloProvider>
